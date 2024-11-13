@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>l3</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFE4C4;
+        }
+
+        #shirt-container {
+            text-align: center;
+            width: 100%;
+        }
+
+        #shirt-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .view-button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .view-button:hover {
+            background-color: #B0C4DE;
+        }
+
+        .color-button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #shirt-colors {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .color-button {
+            flex: 1 1 30%;
+            max-width: 150px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>T-shirts</h1>
+    <div id = "tableId"></div>
+
+    <div id="modal"></div>
+
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>

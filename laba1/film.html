@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>База данных фильмов</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const personalMovieDB = {
+            privat: false,
+            movies: {
+                "Форсаж 7": 5,
+                "Живая сталь": 9,
+                "Гран Туризмо": 9
+            }
+        };
+
+        function displayMoviesTable() {
+            const table = document.createElement('table');
+            const headerRow = table.insertRow();
+            const header1 = document.createElement('th');
+            header1.textContent = 'Фильм';
+            const header2 = document.createElement('th');
+            header2.textContent = 'Оценка';
+            headerRow.appendChild(header1);
+            headerRow.appendChild(header2);
+
+            for (const movie in personalMovieDB.movies) {
+                const row = table.insertRow();
+                const cell1 = row.insertCell();
+                cell1.textContent = movie;
+                const cell2 = row.insertCell();
+                cell2.textContent = personalMovieDB.movies[movie];
+            }
+
+            document.body.appendChild(table);
+        }
+
+        if (!personalMovieDB.privat) {
+            displayMoviesTable();
+        }
+    </script>
+</body>
+
+</html>
