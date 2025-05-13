@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTO rewiew</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <button class="burger-menu" id="burger">
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+                <span class="burger-menu__line"></span>
+              </button>
+          <div class="nav-row">
+            
+      
+            <a href="./index.html" class="logo"><strong>AUTO</strong> review</a>
+      
+            <ul class="nav-list">
+              <li class="nav-list__item"><a href="./index.html" class="nav-list__link">Отзывы</a></li>
+              <li class="nav-list__item"><a href="./author.html" class="nav-list__link">Детальный обзор автомобиля</a></li>
+              <li class="nav-list__item"><a href="./contacts.html" class="nav-list__link">Контакты</a></li>
+            </ul>
+      
+            <button class="dark-mode-btn">
+              <img src="./img/icons/sun.svg" alt="Light mode" class="dark-mode-btn__icon">
+              <img src="./img/icons/moon.svg" alt="Dark mode" class="dark-mode-btn__icon">
+            </button>
+          </div>
+        </div>
+      </nav>
+
+    <header class="header">
+        <div class="header__wrapper">
+            <h1 class="header__title">
+                <strong>САМЫЕ ЧЕСТНЫЕ ОТЗЫВЫ</strong><br>
+            </h1>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <h2 class="title-1">Отзывы на автомобили</h2>
+            <div class="search-sort-panel">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Поиск по названию...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="sort-options">
+                    <button id="sort-btn" class="sort-btn">Сортировка А-Я</button>
+                </div>
+                <br></br>
+            </div>
+            <ul class="projects">
+                <li class="project">
+                    <a href="./project-page.html">
+                        <img src="./img/projects/01.png" alt="Project img" class="project__img">
+                        <h3 class="project__title">Toyota Camry 2024</h3>
+                    </a>
+                </li>
+                <li class="project">
+                    <a href="./project-page.html">
+                        <img src="./img/projects/02.png" alt="Project img" class="project__img">
+                        <h3 class="project__title">Kia Sportage 2023</h3>
+                    </a>
+                </li>
+                <li class="project">
+                    <a href="./project-page.html">
+                        <img src="./img/projects/03.png" alt="Project img" class="project__img">
+                        <h3 class="project__title">BMW X5M 2024</h3>
+                    </a>
+                </li>
+
+                <li class="project">
+                    <a href="./project-page.html">
+                        <img src="./img/projects/04.png" alt="Project img" class="project__img">
+                        <h3 class="project__title">Audi A8 2024</h3>
+                    </a>
+                </li>
+                <li class="project">
+                    <a href="./project-page.html">
+                        <img src="./img/projects/05.png" alt="Project img" class="project__img">
+                        <h3 class="project__title">Mercedes CLS 2024</h3>
+                    </a>
+                </li>
+                <li class="project">
+                    <a href="./project-page.html">
+                        <img src="./img/projects/06.png" alt="Project img" class="project__img">
+                        <h3 class="project__title">Volkswagen Arteon 2024</h3>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__wrapper">
+                <ul class="social">
+                    <li class="social__item"><a href="#!"><img src="./img/icons/vk.svg" alt="Link"></a></li>
+                    <li class="social__item"><a href="#!"><img src="./img/icons/instagram.svg" alt="Link"></a></li>
+                    <li class="social__item"><a href="#!"><img src="./img/icons/twitter.svg" alt="Link"></a></li>
+                    <li class="social__item"><a href="#!"><img src="./img/icons/gitHub.svg" alt="Link"></a></li>
+                    <li class="social__item"><a href="#!"><img src="./img/icons/linkedIn.svg" alt="Link"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/burger.js"></script>
+    <script defer src="js/menu.js"></script>
+
+</body>
+</html>

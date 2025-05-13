@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTO rewiew</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <meta charset="utf-8">
+    <style>
+        /* Стили для карточек отзывов */
+        .reviews-container {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .review-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .review-author {
+            font-weight: 700;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .review-mileage {
+            background-color: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .review-content {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .review-model {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        /* Стили для карусели */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-height: 900px;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-items {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-items .item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slider-items .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .slider-nav-item {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slider-nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        input[name="s"] {
+            display: none;
+        }
+
+        #s1:checked ~ .slider-items {
+            transform: translateX(0%);
+        }
+        #s2:checked ~ .slider-items {
+            transform: translateX(-100%);
+        }
+        #s3:checked ~ .slider-items {
+            transform: translateX(-200%);
+        }
+        #s4:checked ~ .slider-items {
+            transform: translateX(-300%);
+        }
+        #s5:checked ~ .slider-items {
+            transform: translateX(-400%);
+        }
+        #s6:checked ~ .slider-items {
+            transform: translateX(-500%);
+        }
+
+        #s1:checked ~ .slider-nav label[for="s1"],
+        #s2:checked ~ .slider-nav label[for="s2"],
+        #s3:checked ~ .slider-nav label[for="s3"],
+        #s4:checked ~ .slider-nav label[for="s4"],
+        #s5:checked ~ .slider-nav label[for="s5"],
+        #s6:checked ~ .slider-nav label[for="s6"] {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<nav class="nav">
+    <div class="container">
+        <button class="burger-menu" id="burger">
+            <span class="burger-menu__line"></span>
+            <span class="burger-menu__line"></span>
+            <span class="burger-menu__line"></span>
+        </button>
+        <div class="nav-row">
+            <a href="./index.html" class="logo"><strong>AUTO</strong> review</a>
+            <ul class="nav-list">
+                <li class="nav-list__item"><a href="./index.html" class="nav-list__link">Отзывы</a></li>
+                <li class="nav-list__item"><a href="./author.html" class="nav-list__link">Детальный обзор автомобиля</a></li>
+                <li class="nav-list__item"><a href="./contacts.html" class="nav-list__link">Контакты</a></li>
+            </ul>
+            <button class="dark-mode-btn">
+                <img src="./img/icons/sun.svg" alt="Light mode" class="dark-mode-btn__icon">
+                <img src="./img/icons/moon.svg" alt="Dark mode" class="dark-mode-btn__icon">
+            </button>
+        </div>
+    </div>
+</nav>
+
+<main class="section">
+    <div class="с-container">
+        <div class="project-details">
+            <h1 class="title-1">Полный осмотр Toyota Camry 2024</h1>
+            <div class="wrapper">
+                <div class="slider">
+                    <input type="radio" name="s" id="s1" checked>
+                    <input type="radio" name="s" id="s2">
+                    <input type="radio" name="s" id="s3">
+                    <input type="radio" name="s" id="s4">
+                    <input type="radio" name="s" id="s5">
+                    <input type="radio" name="s" id="s6">
+
+                    <div class="slider-items">
+                        <div class="item">
+                            <img src="./img/projects/kamry1.webp" alt="Toyota Camry 2024">
+                        </div>
+                        <div class="item">
+                            <img src="./img/projects/kamry2.webp" alt="Toyota Camry 2024 интерьер">
+                        </div>
+                        <div class="item">
+                            <img src="./img/projects/kamry3.webp" alt="Toyota Camry 2024 задняя часть">
+                        </div>
+                        <div class="item">
+                            <img src="./img/projects/kamry4.webp" alt="Toyota Camry 2024 боковой вид">
+                        </div>
+                        <div class="item">
+                            <img src="./img/projects/kamry5.webp" alt="Toyota Camry 2024 приборная панель">
+                        </div>
+                        <div class="item">
+                            <img src="./img/projects/kamry6.webp" alt="Toyota Camry 2024 мультимедиа">
+                        </div>
+                    </div>
+
+                    <div class="slider-nav">
+                        <label for="s1" class="slider-nav-item"></label>
+                        <label for="s2" class="slider-nav-item"></label>
+                        <label for="s3" class="slider-nav-item"></label>
+                        <label for="s4" class="slider-nav-item"></label>
+                        <label for="s5" class="slider-nav-item"></label>
+                        <label for="s6" class="slider-nav-item"></label>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title"><strong>Отзывы владельцев Toyota Camry 2024</strong></h2>
+
+            <div class="reviews-container">
+                <!-- Отзыв 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-author">Александр Петров</span>
+                        <span class="review-mileage">Пробег: 8,500 км</span>
+                    </div>
+                    <div class="review-content">
+                        <p>Пользуюсь <span class="review-model">Toyota Camry 2024</span> уже 4 месяца. Машина просто отличная!
+                            Двигатель 2.5 литра (181 л.с.) достаточно динамичный, при этом расход в городе около 9.5 л,
+                            по трассе 6.5-7 л. Салон очень комфортный, особенно нравятся кресла с подогревом и вентиляцией.
+                            Из минусов - мультимедийная система иногда подвисает, но после последнего обновления стало лучше.</p>
+                    </div>
+                </div>
+
+                <!-- Отзыв 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-author">Елена Смирнова</span>
+                        <span class="review-mileage">Пробег: 12,300 км</span>
+                    </div>
+                    <div class="review-content">
+                        <p>Пересела с немецкого премиума на <span class="review-model">Camry 2024</span> и не пожалела!
+                            Качество сборки на высоте, никаких скрипов даже после наших дорог.
+                            Адаптивный круиз-контроль - просто спасение в пробках.
+                            Багажник вместительный (493 литра), чего хватает для семьи из 4 человек.
+                            Единственное, хотелось бы более информативную приборную панель в базовых комплектациях.</p>
+                    </div>
+                </div>
+
+                <!-- Отзыв 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-author">Дмитрий Иванов</span>
+                        <span class="review-mileage">Пробег: 23,700 км</span>
+                    </div>
+                    <div class="review-content">
+                        <p>Это моя третья <span class="review-model">Camry</span> за последние 10 лет, и 2024 модель - лучшая из всех!
+                            Гибридная версия (2.5 Hybrid) просто поражает экономичностью - в городе 5.5-6 л/100км.
+                            Подвеска стала более комфортной, хотя и немного потеряла в спортивности.
+                            Система безопасности Toyota Safety Sense 3.0 уже дважды помогала избежать аварий.
+                            Рекомендую брать в максимальной комплектации - разница в комфорте существенная.</p>
+                    </div>
+                </div>
+
+                <!-- Отзыв 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-author">Ольга Козлова</span>
+                        <span class="review-mileage">Пробег: 5,200 км</span>
+                    </div>
+                    <div class="review-content">
+                        <p>Выбрала <span class="review-model">Camry 2024</span> после долгих сравнений с конкурентами и очень довольна!
+                            В салоне приятные материалы, удобная посадка (я высокая - 182 см).
+                            Шумоизоляция хорошая, хотя на высоких скоростах немного слышен ветер.
+                            Из приятных мелочей - беспроводная зарядка и проекционный дисплей.
+                            Сервисное обслуживание пока не требовалось, но дилер обещает адекватные цены на ТО.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-details__desc">
+                <p>Больше отзывов и более подробное описание у нас в Instagram</p>
+            </div>
+
+            <a href="#">
+                <p>Подписывайся и не пропусти свежие отзывы</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__wrapper">
+            <ul class="social">
+                <li class="social__item"><a href="#!"><img src="./img/icons/vk.svg" alt="Link"></a></li>
+                <li class="social__item"><a href="#!"><img src="./img/icons/instagram.svg" alt="Link"></a></li>
+                <li class="social__item"><a href="#!"><img src="./img/icons/twitter.svg" alt="Link"></a></li>
+                <li class="social__item"><a href="#!"><img src="./img/icons/gitHub.svg" alt="Link"></a></li>
+                <li class="social__item"><a href="#!"><img src="./img/icons/linkedIn.svg" alt="Link"></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="./js/main.js"></script>
+<script src="./js/script.js"></script>
+<script defer src="js/menu.js"></script>
+<script>
+    // Автоматическое переключение слайдов
+    document.addEventListener('DOMContentLoaded', function() {
+        let currentSlide = 1;
+        const totalSlides = 6;
+
+        function nextSlide() {
+            currentSlide = (currentSlide % totalSlides) + 1;
+            document.getElementById(`s${currentSlide}`).checked = true;
+        }
+
+        // Меняем слайд каждые 5 секунд
+        setInterval(nextSlide, 5000);
+    });
+</script>
+</body>
+</html>

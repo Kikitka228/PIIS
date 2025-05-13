@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  margin: 3rem 5rem 6rem 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  max-height: 900px;
+  max-width: 900px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.slider-items {
+  width: 500%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+
+.slider-items .item {
+  width: 20%;
+  flex-shrink: 0;
+}
+
+.slider-items .item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slider-items input {
+  position: absolute;
+  visibility: hidden;
+}
+
+.slider-nav {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.slider-nav .slider-nav-item {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider-nav .slider-nav-item:hover,
+.slider-nav .slider-nav-item.active {
+  background-color: #fff;
+}
+
+/* Анимация слайдов */
+#s1:checked ~ .slider-items {
+  transform: translateX(0);
+}
+#s2:checked ~ .slider-items {
+  transform: translateX(-20%);
+}
+#s3:checked ~ .slider-items {
+  transform: translateX(-40%);
+}
+#s4:checked ~ .slider-items {
+  transform: translateX(-60%);
+}
+#s5:checked ~ .slider-items {
+  transform: translateX(-80%);
+}
+
+/* Показываем активную точку навигации */
+#s1:checked ~ .slider-nav .slider-nav-item:nth-child(1),
+#s2:checked ~ .slider-nav .slider-nav-item:nth-child(2),
+#s3:checked ~ .slider-nav .slider-nav-item:nth-child(3),
+#s4:checked ~ .slider-nav .slider-nav-item:nth-child(4),
+#s5:checked ~ .slider-nav .slider-nav-item:nth-child(5) {
+  background-color: #fff;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--black);
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 400px;
+}
+
+.slider-item {
+  min-width: 100%;
+  position: relative;
+  display: none;
+}
+
+.slider-item.active {
+  display: block;
+}
+
+.slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.slider-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider-control.prev {
+  left: 15px;
+}
+
+.slider-control.next {
+  right: 15px;
+}
+
+.slider-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.slider-indicators span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-indicators span.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* Стили для панели поиска и сортировки */
+.search-sort-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 0 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.search-box input {
+  flex-grow: 1;
+  border: none;
+  padding: 0.5rem;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  color: #4a6fa5;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+  color: #166088;
+  transform: scale(1.1);
+}
+
+.sort-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background: #4a6fa5;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+  background: #166088;
+  transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 576px) {
+  .search-sort-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    max-width: 100%;
+  }
+}
